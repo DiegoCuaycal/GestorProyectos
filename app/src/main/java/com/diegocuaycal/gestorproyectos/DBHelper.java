@@ -1,13 +1,15 @@
 package com.diegocuaycal.gestorproyectos;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
     // Atributos
     public static final String DB_NAME = "GestorProyectos.db";
-    public static final int DB_VERSION = 1;
+    public static final int DB_VERSION = 2;
     // Constructor
     public DBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -19,8 +21,10 @@ public class DBHelper extends SQLiteOpenHelper {
         // Tabla Usuarios
         db.execSQL("CREATE TABLE Usuarios (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "nombre TEXT NOT NULL," +
                 "usuario TEXT NOT NULL UNIQUE," +
                 "contrasena TEXT NOT NULL)");
+
 
         // Tabla Proyectos
         db.execSQL("CREATE TABLE Proyectos (" +
@@ -51,5 +55,36 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS Usuarios");
         onCreate(db);
     }
+
+    // Metodo para insertar un nuevo usuario
+    public boolean insertUser(String nombre, String usuario, String contrasena) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("nombre", nombre);
+        values.put("usuario", usuario);
+        values.put("contrasena", contrasena);
+        long result = db.insert("Usuarios", null, values);
+        return result != -1;
+    }
+
+
+    // Metodo para verificar si el usuario ya existe
+    public boolean checkEmailExists(String usuario) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Usuarios WHERE usuario = ?", new String[]{usuario});
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        return exists;
+    }
+
+    public boolean validarUsuario(String usuario, String contrasena) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Usuarios WHERE usuario = ? AND contrasena = ?", new String[]{usuario, contrasena});
+        boolean existe = cursor.getCount() > 0;
+        cursor.close();
+        return existe;
+    }
+
+
 }
 
