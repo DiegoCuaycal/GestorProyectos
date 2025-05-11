@@ -3,7 +3,17 @@
     <string name="hint_contrasena">Contraseña</string>
     <string name="btn_login">Iniciar sesión</string>
     <string name="registro_link">¿No tienes cuenta? Regístrate aquí</string>
+    <string name="recuperar_contrasena">¿Olvidaste tu contraseña? Da clic aquí</string>
+    <string name="volver_login">¿Ya recordaste tu contraseña? Inicia sesión aquí</string>
     <string name="app_name">Gestor Proyectos</string>
+
+    <string name="hint_nombre">Nombre completo</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_confirmar_contrasena">Confirmar contraseña</string>
+    <string name="btn_registrar">Registrarse</string>
+    <string name="volver_login_desde_registro">¿Ya tienes una cuenta? Inicia sesión aquí</string>
+
+
 
 
 </resources>

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,41 +14,60 @@
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre completo"
+            android:minHeight="48dp"
+            android:hint="@string/hint_nombre"
             android:inputType="textPersonName"
+            android:autofillHints="name"
             android:layout_marginBottom="12dp" />
 
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Correo electrónico"
+            android:minHeight="48dp"
+            android:hint="@string/hint_email"
             android:inputType="textEmailAddress"
+            android:autofillHints="emailAddress"
             android:layout_marginBottom="12dp" />
 
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Contraseña"
+            android:minHeight="48dp"
+            android:hint="@string/hint_contrasena"
             android:inputType="textPassword"
+            android:autofillHints="password"
             android:layout_marginBottom="12dp" />
 
         <EditText
             android:id="@+id/etConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Confirmar contraseña"
+            android:minHeight="48dp"
+            android:hint="@string/hint_confirmar_contrasena"
             android:inputType="textPassword"
+            android:autofillHints="password"
             android:layout_marginBottom="20dp" />
 
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registrarse"
-            android:backgroundTint="#4CAF50"
+            android:minHeight="48dp"
+            android:text="@string/btn_registrar"
+            android:backgroundTint="#388E3C"
             android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tvVolverLoginDesdeRegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/volver_login_desde_registro"
+            android:textColor="#0000EE"
+            android:layout_marginTop="16dp" />
+
     </LinearLayout>
 </ScrollView>
+
 

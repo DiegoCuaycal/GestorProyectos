@@ -44,4 +44,11 @@
         android:layout_height="wrap_content"
         android:text="@string/registro_link"
         android:textColor="#0000EE" />
+
+    <TextView
+        android:id="@+id/tvRecuperarContrasena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recuperar_contrasena"
+        android:textColor="#0000EE" />
 </LinearLayout>

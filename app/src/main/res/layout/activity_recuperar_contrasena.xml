@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/recuperarLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#F5F5F5">
+
+    <EditText
+        android:id="@+id/etCorreoRecuperacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:hint="Ingresa tu correo"
+        android:inputType="textEmailAddress"
+        android:autofillHints="emailAddress"
+        android:layout_marginBottom="20dp" />
+
+
+    <Button
+        android:id="@+id/btnRecuperar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recuperar contraseña"
+        android:backgroundTint="#1976D2"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvVolverLoginDesdeRecuperar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/volver_login"
+        android:textColor="#0000EE"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

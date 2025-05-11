@@ -22,7 +22,8 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText etUsuario, etContrasena;
     Button btnLogin;
-    TextView tvIrARegistro;
+    TextView tvIrARegistro, tvRecuperarContrasena;
+    ;
     DBHelper dbHelper;
 
     @SuppressLint("MissingInflatedId")
@@ -74,6 +75,14 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
         });
+
+        tvRecuperarContrasena = findViewById(R.id.tvRecuperarContrasena);
+
+        tvRecuperarContrasena.setOnClickListener(v -> {
+            Intent intent = new Intent(this, RecuperarContrasenaActivity.class);
+            startActivity(intent);
+        });
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.loginLayout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

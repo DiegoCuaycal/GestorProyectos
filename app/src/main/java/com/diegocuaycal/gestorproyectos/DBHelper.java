@@ -85,6 +85,20 @@ public class DBHelper extends SQLiteOpenHelper {
         return existe;
     }
 
+    public String obtenerContrasena(String usuario) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT contrasena FROM Usuarios WHERE usuario = ?", new String[]{usuario});
+        if (cursor.moveToFirst()) {
+            String pass = cursor.getString(0);
+            cursor.close();
+            return pass;
+        } else {
+            cursor.close();
+            return null;
+        }
+    }
+
+
 
 }
 
