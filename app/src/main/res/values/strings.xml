@@ -13,6 +13,12 @@
     <string name="btn_registrar">Registrarse</string>
     <string name="volver_login_desde_registro">¿Ya tienes una cuenta? Inicia sesión aquí</string>
 
+    <string name="titulo_proyectos">Proyectos</string>
+    <string name="agregar_proyecto">Agregar Proyecto</string>
+    <string name="lista_proyectos">Lista de proyectos del usuario</string>
+
+
+
 
 
 

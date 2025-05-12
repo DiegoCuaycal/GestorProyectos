@@ -31,12 +31,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_login); // 👈 Usa el layout de login, no el main
+        setContentView(R.layout.activity_login); //  Usa el layout de login, no el main
 
         dbHelper = new DBHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        // ✅ (Opcional) Usuario de prueba automático
+        //  Usuario de prueba automático
         String nuevoUsuario = "test_" + System.currentTimeMillis();
         ContentValues values = new ContentValues();
         values.put("usuario", nuevoUsuario);
@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
             Log.d("DB", "Error al insertar usuario");
         }
 
-        // 🧠 Vincular vistas
+        // Vincular vistas
         etUsuario = findViewById(R.id.etUsuario);
         etContrasena = findViewById(R.id.etContrasena);
         btnLogin = findViewById(R.id.btnLogin);
@@ -65,10 +65,14 @@ public class LoginActivity extends AppCompatActivity {
 
             if (validarUsuario(usuario, contrasena)) {
                 Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
-                // Aquí puedes redirigir a otra pantalla (por ejemplo, HomeActivity)
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.putExtra("usuario", usuario);
+                startActivity(intent);
+                finish();
             } else {
                 Toast.makeText(this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
             }
+
         });
 
         tvIrARegistro.setOnClickListener(v -> {
