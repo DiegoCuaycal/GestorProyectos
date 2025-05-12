@@ -1,38 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/recuperarLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp"
     android:background="#FAD4C0">
 
-    <EditText
-        android:id="@+id/etCorreoRecuperacion"
+    <!-- Curva decorativa superior -->
+    <ImageView
+        android:id="@+id/curvaSuperior"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:hint="Ingresa tu correo"
-        android:inputType="textEmailAddress"
-        android:autofillHints="emailAddress"
-        android:layout_marginBottom="20dp" />
+        android:layout_height="120dp"
+        android:src="@drawable/wavesopacityrestablecer1"
+        android:scaleType="fitXY"
+        android:layout_gravity="top" />
 
-
-    <Button
-        android:id="@+id/btnRecuperar"
+    <!-- Contenido desplazable -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Recuperar contraseña"
-        android:backgroundTint="#1976D2"
-        android:textColor="#FFFFFF" />
+        android:layout_height="match_parent"
+        android:paddingTop="100dp">
 
-    <TextView
-        android:id="@+id/tvVolverLoginDesdeRecuperar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/volver_login"
-        android:textColor="#0000EE"
-        android:layout_marginTop="16dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center">
 
-</LinearLayout>
+            <!-- Ícono centrado de recuperación -->
+            <ImageView
+                android:id="@+id/iconRecuperar"
+                android:layout_width="2500dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:src="@drawable/restablecer"
+                android:layout_marginBottom="48dp"
+                android:contentDescription="Ícono recuperar contraseña" />
+
+
+            <!-- Campo de correo -->
+            <EditText
+                android:id="@+id/etCorreoRecuperacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:hint="Ingresa tu correo"
+                android:inputType="textEmailAddress"
+                android:autofillHints="emailAddress"
+                android:textColor="#000000"
+                android:textColorHint="#7D6B67"
+                android:background="#FFFFFF"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:drawableStart="@drawable/email"
+                android:drawablePadding="8dp"
+                android:drawableTint="#7D6B67"
+                android:elevation="2dp"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Botón recuperar -->
+            <Button
+                android:id="@+id/btnRecuperar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="Recuperar contraseña"
+                android:backgroundTint="#796056"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:elevation="3dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Texto para volver -->
+            <TextView
+                android:id="@+id/tvVolverLoginDesdeRecuperar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/volver_login"
+                android:textColor="#3A2E2B"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:padding="4dp"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Curva inferior decorativa -->
+    <ImageView
+        android:id="@+id/curvaInferior"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@drawable/wavesopacityrestablecer1"
+        android:scaleType="fitXY"
+        android:layout_gravity="bottom"
+        android:rotation="180" />
+</FrameLayout>
+
+
