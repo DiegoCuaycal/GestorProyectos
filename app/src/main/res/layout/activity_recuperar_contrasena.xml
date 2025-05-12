@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="24dp"
-    android:background="#F5F5F5">
+    android:background="#FAD4C0">
 
     <EditText
         android:id="@+id/etCorreoRecuperacion"

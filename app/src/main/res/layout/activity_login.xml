@@ -1,54 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/loginLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp"
-    android:background="#F5F5F5">
+    android:background="#B09E99">
 
-    <EditText
-        android:id="@+id/etUsuario"
+    <!-- Fondo decorativo arriba -->
+    <ImageView
+        android:id="@+id/curvaSuperior"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:hint="@string/hint_usuario"
-        android:autofillHints="username"
-        android:inputType="textEmailAddress"
-        android:layout_marginBottom="12dp" />
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/wavesopacity__3_"
+        android:layout_gravity="top" />
 
-    <EditText
-        android:id="@+id/etContrasena"
+    <!-- Contenido principal centrado -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:hint="@string/hint_contrasena"
-        android:autofillHints="password"
-        android:inputType="textPassword"
-        android:layout_marginBottom="20dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp">
 
-    <Button
-        android:id="@+id/btnLogin"
+        <ImageView
+            android:id="@+id/imgLogin"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/loginfondo"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="Ícono de login" />
+
+        <EditText
+            android:id="@+id/etUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:hint="@string/hint_usuario"
+            android:autofillHints="username"
+            android:inputType="textEmailAddress"
+            android:textColor="#000000"
+            android:textColorHint="#757575"
+            android:background="#FFFFFF"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:drawableStart="@drawable/person"
+            android:drawablePadding="8dp"
+            android:drawableTint="#757575"
+            android:elevation="2dp"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/etContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:hint="@string/hint_contrasena"
+            android:autofillHints="password"
+            android:inputType="textPassword"
+            android:textColor="#000000"
+            android:textColorHint="#757575"
+            android:background="#FFFFFF"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:drawableStart="@drawable/visibility"
+            android:drawablePadding="8dp"
+            android:drawableTint="#757575"
+            android:elevation="2dp"
+            android:layout_marginBottom="20dp" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="@string/btn_login"
+            android:backgroundTint="#796056"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:elevation="3dp"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/tvIrARegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registro_link"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:padding="4dp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tvRecuperarContrasena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recuperar_contrasena"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:padding="4dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/curvaInferior"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:text="@string/btn_login"
-        android:backgroundTint="#1976D2"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="12dp" />
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/wavesopacity__4_"
+        android:layout_gravity="bottom"
+        android:rotation="180" />
 
-    <TextView
-        android:id="@+id/tvIrARegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/registro_link"
-        android:textColor="#0000EE" />
+</FrameLayout>
 
-    <TextView
-        android:id="@+id/tvRecuperarContrasena"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/recuperar_contrasena"
-        android:textColor="#0000EE" />
-</LinearLayout>
+
