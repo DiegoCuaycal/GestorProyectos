@@ -1,73 +1,162 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FEE9E1">
 
-    <LinearLayout
+    <!-- Curva decorativa superior -->
+    <ImageView
+        android:id="@+id/curvaSuperior"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center">
+        android:layout_height="90dp"
+        android:src="@drawable/wavesopacityregister"
+        android:scaleType="fitXY"
+        android:layout_gravity="top" />
 
-        <EditText
-            android:id="@+id/etName"
+    <!-- Contenido desplazable -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="100dp">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:hint="@string/hint_nombre"
-            android:inputType="textPersonName"
-            android:autofillHints="name"
-            android:layout_marginBottom="12dp" />
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center">
 
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:hint="@string/hint_email"
-            android:inputType="textEmailAddress"
-            android:autofillHints="emailAddress"
-            android:layout_marginBottom="12dp" />
+            <ImageView
+                android:id="@+id/imgRegisterIcon"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:src="@drawable/register"
+                android:layout_marginBottom="24dp"
+                android:contentDescription="Ícono de registro" />
 
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:hint="@string/hint_contrasena"
-            android:inputType="textPassword"
-            android:autofillHints="password"
-            android:layout_marginBottom="12dp" />
 
-        <EditText
-            android:id="@+id/etConfirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:hint="@string/hint_confirmar_contrasena"
-            android:inputType="textPassword"
-            android:autofillHints="password"
-            android:layout_marginBottom="20dp" />
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:hint="@string/hint_nombre"
+                android:inputType="textPersonName"
+                android:autofillHints="name"
+                android:textColor="#000000"
+                android:textColorHint="#7D6B67"
+                android:background="#FFFFFF"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:drawableStart="@drawable/person"
+                android:drawablePadding="8dp"
+                android:drawableTint="#7D6B67"
+                android:elevation="2dp"
+                android:layout_marginBottom="12dp" />
 
-        <Button
-            android:id="@+id/btnRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="@string/btn_registrar"
-            android:backgroundTint="#388E3C"
-            android:textColor="#FFFFFF" />
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:hint="@string/hint_email"
+                android:inputType="textEmailAddress"
+                android:autofillHints="emailAddress"
+                android:textColor="#000000"
+                android:textColorHint="#7D6B67"
+                android:background="#FFFFFF"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:drawableStart="@drawable/email"
+                android:drawablePadding="8dp"
+                android:drawableTint="#7D6B67"
+                android:elevation="2dp"
+                android:layout_marginBottom="12dp" />
 
-        <TextView
-            android:id="@+id/tvVolverLoginDesdeRegistro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/volver_login_desde_registro"
-            android:textColor="#0000EE"
-            android:layout_marginTop="16dp" />
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:hint="@string/hint_contrasena"
+                android:inputType="textPassword"
+                android:autofillHints="password"
+                android:textColor="#000000"
+                android:textColorHint="#7D6B67"
+                android:background="#FFFFFF"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:drawableStart="@drawable/visibility"
+                android:drawablePadding="8dp"
+                android:drawableTint="#7D6B67"
+                android:elevation="2dp"
+                android:layout_marginBottom="12dp" />
 
-    </LinearLayout>
-</ScrollView>
+            <EditText
+                android:id="@+id/etConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:hint="@string/hint_confirmar_contrasena"
+                android:inputType="textPassword"
+                android:autofillHints="password"
+                android:textColor="#000000"
+                android:textColorHint="#7D6B67"
+                android:background="#FFFFFF"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:drawableStart="@drawable/visibility"
+                android:drawablePadding="8dp"
+                android:drawableTint="#7D6B67"
+                android:elevation="2dp"
+                android:layout_marginBottom="20dp" />
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/btn_registrar"
+                android:backgroundTint="#796056"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:elevation="3dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/tvVolverLoginDesdeRegistro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/volver_login_desde_registro"
+                android:textColor="#3A2E2B"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:padding="4dp"
+                android:layout_marginTop="16dp" />
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/curvaInferior"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:src="@drawable/wavesopacityregister"
+        android:scaleType="fitXY"
+        android:layout_gravity="bottom"
+        android:rotation="180" />
+</FrameLayout>
 
 
