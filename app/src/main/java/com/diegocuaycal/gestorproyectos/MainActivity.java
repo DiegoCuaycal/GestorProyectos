@@ -90,30 +90,38 @@ public class MainActivity extends AppCompatActivity implements ProyectoAdapter.O
 
     @Override
     public void onEditarClick(Proyecto proyecto) {
-        Toast.makeText(this, "Editar: " + proyecto.getNombre(), Toast.LENGTH_SHORT).show();
-        // Aquí podrías abrir una pantalla de edición
+        Intent intent = new Intent(this, EditarProyectoActivity.class);
+        intent.putExtra("id_proyecto", proyecto.getId());
+        startActivity(intent);
     }
+
 
     @Override
     public void onEliminarClick(Proyecto proyecto) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.delete("Proyectos", "id = ?", new String[]{String.valueOf(proyecto.getId())});
-        listaProyectos.remove(proyecto);
-        adapter.notifyDataSetChanged();
-        Toast.makeText(this, "Proyecto eliminado", Toast.LENGTH_SHORT).show();
+        new android.app.AlertDialog.Builder(this)
+                .setTitle("Eliminar proyecto")
+                .setMessage("¿Estás seguro de que deseas eliminar \"" + proyecto.getNombre() + "\"?")
+                .setPositiveButton("Sí", (dialog, which) -> {
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+                    db.delete("Proyectos", "id = ?", new String[]{String.valueOf(proyecto.getId())});
+                    listaProyectos.remove(proyecto);
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(this, "Proyecto eliminado", Toast.LENGTH_SHORT).show();
+                })
+                .setNegativeButton("Cancelar", null)
+                .show();
     }
+
 
     @Override
     public void onActividadesClick(Proyecto proyecto) {
         Toast.makeText(this, "Actividades de: " + proyecto.getNombre(), Toast.LENGTH_SHORT).show();
-        // Aquí podrías abrir una nueva pantalla para ver las actividades
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-        // Recargar los proyectos del usuario
         listaProyectos = cargarProyectosDesdeDB(idUsuario);
         adapter = new ProyectoAdapter(this, listaProyectos, this);
         recyclerView.setAdapter(adapter);

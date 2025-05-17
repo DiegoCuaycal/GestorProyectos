@@ -25,6 +25,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".RecuperarContrasenaActivity" />
         <activity android:name=".CrearProyectoActivity" />
+        <activity android:name=".EditarProyectoActivity" />
+
 
 
     </application>
