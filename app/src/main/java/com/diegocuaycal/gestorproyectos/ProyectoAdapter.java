@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import android.widget.ProgressBar;
+
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,6 +48,9 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.Proyec
         holder.btnEditar.setOnClickListener(v -> listener.onEditarClick(proyecto));
         holder.btnEliminar.setOnClickListener(v -> listener.onEliminarClick(proyecto));
         holder.btnIrActividades.setOnClickListener(v -> listener.onActividadesClick(proyecto));
+        holder.progressAvance.setProgress(proyecto.getPorcentajeAvance());
+        holder.tvPorcentaje.setText(proyecto.getPorcentajeAvance() + "%");
+
     }
 
     @Override
@@ -53,9 +59,10 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.Proyec
     }
 
     public static class ProyectoViewHolder extends RecyclerView.ViewHolder {
-        TextView tvNombre, tvDescripcion, tvFechas;
+        TextView tvNombre, tvDescripcion, tvFechas, tvPorcentaje;
         ImageButton btnVer, btnEditar, btnEliminar;
         Button btnIrActividades;
+        ProgressBar progressAvance;
 
         public ProyectoViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -66,8 +73,11 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.Proyec
             btnEditar = itemView.findViewById(R.id.btnEditar);
             btnEliminar = itemView.findViewById(R.id.btnEliminar);
             btnIrActividades = itemView.findViewById(R.id.btnIrActividades);
+            progressAvance = itemView.findViewById(R.id.progressAvance);
+            tvPorcentaje = itemView.findViewById(R.id.tvPorcentaje);
         }
     }
+
 
     // Interfaz para manejar clics desde el MainActivity
     public interface OnProyectoClickListener {
