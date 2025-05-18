@@ -6,55 +6,62 @@
     android:background="#FEE9E1">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarActividades"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#B09E99"
         android:elevation="4dp"
         app:titleTextColor="#FFFFFF"
-        app:title="@string/titulo_proyectos"
+        app:title="Actividades del Proyecto"
         app:titleTextAppearance="@style/ToolbarTitleStyle" />
 
     <TextView
-        android:id="@+id/tvBienvenida"
+        android:id="@+id/tvInfoActividades"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/toolbarActividades"
         android:padding="16dp"
-        android:text="Bienvenido a tu Gestor de Proyectos"
-        android:textSize="18sp"
+        android:text="Gestiona las actividades de tu proyecto"
+        android:textSize="16sp"
         android:textColor="#5D4037"
-        android:fontFamily="sans-serif-medium"/>
+        android:fontFamily="sans-serif" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tvBienvenida"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_below="@id/tvInfoActividades"
+        android:layout_margin="8dp"
         app:cardCornerRadius="12dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true">
+        app:cardElevation="4dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerProyectos"
+            android:id="@+id/recyclerActividades"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="8dp"
             android:clipToPadding="false"
-            android:background="#FFFFFF"
-            android:contentDescription="@string/lista_proyectos" />
+            android:scrollbars="vertical" />
+
+        <TextView
+            android:id="@+id/tvNoActividades"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="No hay actividades para mostrar"
+            android:textSize="18sp"
+            android:textColor="#9E9E9E"
+            android:gravity="center"
+            android:visibility="gone" />
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddProyecto"
+        android:id="@+id/fabAddActividad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
-        android:contentDescription="@string/agregar_proyecto"
+        android:contentDescription="Agregar actividad"
         android:src="@drawable/add"
         app:tint="#FFFFFF"
         app:backgroundTint="#B09E99"
@@ -62,4 +69,5 @@
         app:elevation="8dp"
         app:fabSize="normal"
         app:rippleColor="#80FFFFFF" />
+
 </RelativeLayout>

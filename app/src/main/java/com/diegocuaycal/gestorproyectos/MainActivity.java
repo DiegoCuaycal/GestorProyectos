@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements ProyectoAdapter.O
         });
     }
 
-    // Método para cargar los proyectos desde la base de datos
+    // Metodo para cargar los proyectos desde la base de datos
     private ArrayList<Proyecto> cargarProyectosDesdeDB(int idUsuario) {
         ArrayList<Proyecto> lista = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -76,16 +76,35 @@ public class MainActivity extends AppCompatActivity implements ProyectoAdapter.O
             String fechaInicio = cursor.getString(cursor.getColumnIndexOrThrow("fecha_inicio"));
             String fechaFin = cursor.getString(cursor.getColumnIndexOrThrow("fecha_fin"));
 
-            lista.add(new Proyecto(id, idUsuario, nombre, descripcion, fechaInicio, fechaFin));
+            int total = 0;
+            int realizadas = 0;
+            Cursor actCursor = db.rawQuery("SELECT estado FROM Actividades WHERE id_proyecto = ?", new String[]{String.valueOf(id)});
+            while (actCursor.moveToNext()) {
+                total++;
+                String estado = actCursor.getString(0);
+                if ("Realizado".equalsIgnoreCase(estado)) {
+                    realizadas++;
+                }
+            }
+            actCursor.close();
+
+            int porcentaje = (total > 0) ? (realizadas * 100 / total) : 0;
+
+            Proyecto proyecto = new Proyecto(id, idUsuario, nombre, descripcion, fechaInicio, fechaFin);
+            proyecto.setPorcentajeAvance(porcentaje); // Este método debe existir en tu clase Proyecto
+            lista.add(proyecto);
         }
         cursor.close();
         return lista;
     }
 
+
     // Métodos del listener (acciones de los botones)
     @Override
     public void onVerClick(Proyecto proyecto) {
-        Toast.makeText(this, "Ver: " + proyecto.getNombre(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, VerProyectoActivity.class);
+        intent.putExtra("id_proyecto", proyecto.getId());
+        startActivity(intent);
     }
 
     @Override
@@ -115,9 +134,11 @@ public class MainActivity extends AppCompatActivity implements ProyectoAdapter.O
 
     @Override
     public void onActividadesClick(Proyecto proyecto) {
-        Toast.makeText(this, "Actividades de: " + proyecto.getNombre(), Toast.LENGTH_SHORT).show();
-
+        Intent intent = new Intent(this, ActividadActivity.class);
+        intent.putExtra("id_proyecto", proyecto.getId());
+        startActivity(intent);
     }
+
 
     @Override
     protected void onResume() {

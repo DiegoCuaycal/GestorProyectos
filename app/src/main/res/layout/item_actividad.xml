@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvNombreActividad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre de la Actividad"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tvDescripcionActividad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripción de la actividad"
+            android:textSize="14sp"
+            android:textColor="#444444"
+            android:paddingTop="2dp" />
+
+        <TextView
+            android:id="@+id/tvFechasActividad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2024-07-25 → 2024-07-28"
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:paddingTop="2dp" />
+
+        <TextView
+            android:id="@+id/tvEstadoActividad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estado: Planificado"
+            android:textSize="13sp"
+            android:textColor="#00695C"
+            android:paddingTop="2dp"
+            android:paddingBottom="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="4dp">
+
+            <ImageButton
+                android:id="@+id/btnCambiarEstadoActividad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/person"
+                android:contentDescription="Cambiar estado"
+                android:background="@null"
+                android:padding="4dp" />
+
+            <ImageButton
+                android:id="@+id/btnEditarActividad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_edit"
+                android:contentDescription="Editar"
+                android:background="@null"
+                android:padding="4dp" />
+
+            <ImageButton
+                android:id="@+id/btnEliminarActividad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_delete"
+                android:contentDescription="Eliminar"
+                android:background="@null"
+                android:padding="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
+

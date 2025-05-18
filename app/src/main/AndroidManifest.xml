@@ -26,6 +26,11 @@
         <activity android:name=".RecuperarContrasenaActivity" />
         <activity android:name=".CrearProyectoActivity" />
         <activity android:name=".EditarProyectoActivity" />
+        <activity android:name=".VerProyectoActivity" />
+        <activity android:name=".CrearActividadActivity" />
+        <activity android:name=".EditarActividadActivity" />
+        <activity android:name=".ActividadActivity" />
+
 
 
 

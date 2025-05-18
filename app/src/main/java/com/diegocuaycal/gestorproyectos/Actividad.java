@@ -1,38 +1,32 @@
 package com.diegocuaycal.gestorproyectos;
 
-public class Proyecto {
-    //Atributos
+public class Actividad {
     private int id;
-    private int idUsuario;
+    private int idProyecto;
     private String nombre;
     private String descripcion;
     private String fechaInicio;
     private String fechaFin;
-    private int porcentajeAvance;
+    private String estado;
 
-    //Constructor
-    public Proyecto(int id, int idUsuario, String nombre, String descripcion, String fechaInicio, String fechaFin) {
+    public Actividad(int id, int idProyecto, String nombre, String descripcion,
+                     String fechaInicio, String fechaFin, String estado) {
         this.id = id;
-        this.idUsuario = idUsuario;
+        this.idProyecto = idProyecto;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
+        this.estado = estado;
     }
 
-    // Getters y setters
+    // Getters (puedes agregar setters si deseas)
     public int getId() { return id; }
-    public int getIdUsuario() { return idUsuario; }
+    public int getIdProyecto() { return idProyecto; }
     public String getNombre() { return nombre; }
     public String getDescripcion() { return descripcion; }
     public String getFechaInicio() { return fechaInicio; }
     public String getFechaFin() { return fechaFin; }
-
-    public int getPorcentajeAvance() {
-        return porcentajeAvance;
-    }
-
-    public void setPorcentajeAvance(int porcentajeAvance) {
-        this.porcentajeAvance = porcentajeAvance;
-    }
+    public String getEstado() { return estado; }
 }
+

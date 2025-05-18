@@ -1,5 +1,6 @@
 package com.diegocuaycal.gestorproyectos;
 
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,9 +12,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.Calendar;
+
 public class CrearProyectoActivity extends AppCompatActivity {
 
     EditText etNombreProyecto, etDescripcion, etFechaInicio, etFechaFin;
+    TextInputLayout tilFechaInicio, tilFechaFin;
     Button btnGuardar;
     DBHelper dbHelper;
     int idUsuario;
@@ -22,12 +28,12 @@ public class CrearProyectoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_proyecto);
+
         String nombreUsuario = getIntent().getStringExtra("usuario");
 
         dbHelper = new DBHelper(this);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        // Obtener el ID del usuario logueado
         Cursor cursor = db.rawQuery("SELECT id FROM Usuarios WHERE usuario = ?", new String[]{nombreUsuario});
         if (cursor.moveToFirst()) {
             idUsuario = cursor.getInt(0);
@@ -37,13 +43,22 @@ public class CrearProyectoActivity extends AppCompatActivity {
         }
         cursor.close();
 
-        // Vincular vistas
+        // Vistas
         etNombreProyecto = findViewById(R.id.etNombreProyecto);
         etDescripcion = findViewById(R.id.etDescripcion);
         etFechaInicio = findViewById(R.id.etFechaInicio);
         etFechaFin = findViewById(R.id.etFechaFin);
+        tilFechaInicio = findViewById(R.id.textInputLayoutFechaInicio);
+        tilFechaFin = findViewById(R.id.textInputLayoutFechaFin);
         btnGuardar = findViewById(R.id.btnGuardarProyecto);
 
+        // Mostrar calendario al tocar campo o icono
+        etFechaInicio.setOnClickListener(v -> mostrarCalendario(etFechaInicio));
+        etFechaFin.setOnClickListener(v -> mostrarCalendario(etFechaFin));
+        tilFechaInicio.setEndIconOnClickListener(v -> mostrarCalendario(etFechaInicio));
+        tilFechaFin.setEndIconOnClickListener(v -> mostrarCalendario(etFechaFin));
+
+        // Guardar
         btnGuardar.setOnClickListener(v -> {
             String nombre = etNombreProyecto.getText().toString().trim();
             String descripcion = etDescripcion.getText().toString().trim();
@@ -73,4 +88,23 @@ public class CrearProyectoActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void mostrarCalendario(EditText campoFecha) {
+        final Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                CrearProyectoActivity.this,
+                (view, year1, month1, dayOfMonth) -> {
+                    String fechaSeleccionada = String.format("%02d/%02d/%04d", dayOfMonth, month1 + 1, year1);
+                    campoFecha.setText(fechaSeleccionada);
+                },
+                year, month, day
+        );
+
+        datePickerDialog.show();
+    }
 }
+
