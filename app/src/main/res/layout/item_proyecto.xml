@@ -75,7 +75,6 @@
                 android:layout_marginStart="8dp" />
         </LinearLayout>
 
-        <!-- Botón actividades + botones acción -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -83,27 +82,25 @@
             android:gravity="center_vertical"
             android:layout_marginTop="12dp">
 
-            <!-- Botón Actividades -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnIrActividades"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Actividades"
                 android:textSize="13sp"
-                android:textColor="#FFFFFF"
+                android:textColor="#5D4037"
                 android:textAllCaps="false"
                 app:cornerRadius="20dp"
-                app:backgroundTint="#2196F3"
+                android:backgroundTint="#EFEBE9"
+
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="8dp" />
 
-            <!-- Separador flexible -->
             <View
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1" />
 
-            <!-- Botones acción -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
