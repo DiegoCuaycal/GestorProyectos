@@ -1,59 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:elevation="4dp"
-    android:padding="12dp">
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:strokeColor="#B09E99"
+    app:strokeWidth="1dp"
+    android:backgroundTint="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
+        <!-- Nombre -->
         <TextView
             android:id="@+id/tvNombreActividad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nombre de la Actividad"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="#000000" />
+            android:textColor="#5D4037"
+            android:layout_marginBottom="4dp" />
 
+        <!-- Descripción -->
         <TextView
             android:id="@+id/tvDescripcionActividad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Descripción de la actividad"
             android:textSize="14sp"
-            android:textColor="#444444"
-            android:paddingTop="2dp" />
+            android:textColor="#6D4C41"
+            android:layout_marginBottom="6dp" />
 
+        <!-- Fechas -->
         <TextView
             android:id="@+id/tvFechasActividad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="2024-07-25 → 2024-07-28"
             android:textSize="13sp"
-            android:textColor="#666666"
-            android:paddingTop="2dp" />
+            android:textColor="#8A8A8A"
+            android:layout_marginBottom="4dp" />
 
+        <!-- Estado -->
         <TextView
             android:id="@+id/tvEstadoActividad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Estado: Planificado"
             android:textSize="13sp"
-            android:textColor="#00695C"
-            android:paddingTop="2dp"
-            android:paddingBottom="4dp" />
+            android:textColor="#00796B"
+            android:layout_marginBottom="8dp" />
 
+        <!-- Botones de acción alineados a la derecha -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="end"
-            android:layout_marginTop="4dp">
+            android:gravity="end">
 
             <ImageButton
                 android:id="@+id/btnCambiarEstadoActividad"
@@ -62,7 +71,8 @@
                 android:src="@drawable/person"
                 android:contentDescription="Cambiar estado"
                 android:background="@null"
-                android:padding="4dp" />
+                android:padding="8dp"
+                app:tint="#B09E99" />
 
             <ImageButton
                 android:id="@+id/btnEditarActividad"
@@ -71,7 +81,8 @@
                 android:src="@drawable/ic_edit"
                 android:contentDescription="Editar"
                 android:background="@null"
-                android:padding="4dp" />
+                android:padding="8dp"
+                app:tint="#B09E99" />
 
             <ImageButton
                 android:id="@+id/btnEliminarActividad"
@@ -80,8 +91,10 @@
                 android:src="@drawable/ic_delete"
                 android:contentDescription="Eliminar"
                 android:background="@null"
-                android:padding="4dp" />
+                android:padding="8dp"
+                app:tint="#B09E99" />
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
+
 

@@ -19,6 +19,21 @@
 
     <string name="guardar_proyecto">Guardar proyecto</string>
 
+    <string name="nombre_actividad">Nombre de la Actividad</string>
+    <string name="desc_actividad">Descripción de la actividad</string>
+    <string name="fechas_actividad">2024-07-25 → 2024-07-28</string>
+    <string name="estado_actividad">Estado: Planificado</string>
+
+    <string name="desc_btn_estado">Cambiar estado</string>
+    <string name="desc_btn_editar">Editar actividad</string>
+    <string name="desc_btn_eliminar">Eliminar actividad</string>
+
+    <string name="ver">Ver</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
+
+
+
 
 
 
