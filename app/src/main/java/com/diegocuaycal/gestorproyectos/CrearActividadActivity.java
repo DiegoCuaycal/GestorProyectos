@@ -72,6 +72,20 @@ public class CrearActividadActivity extends AppCompatActivity {
                 Toast.makeText(this, "Complete los campos obligatorios", Toast.LENGTH_SHORT).show();
                 return;
             }
+            try {
+                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy");
+                sdf.setLenient(false);
+                java.util.Date inicio = sdf.parse(fechaInicio);
+                java.util.Date fin = sdf.parse(fechaFin);
+
+                if (fin.before(inicio)) {
+                    Toast.makeText(this, "La fecha de fin no puede ser anterior a la fecha de inicio", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            } catch (Exception e) {
+                Toast.makeText(this, "Formato de fecha inválido", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             SQLiteDatabase db = dbHelper.getWritableDatabase();
             ContentValues values = new ContentValues();
