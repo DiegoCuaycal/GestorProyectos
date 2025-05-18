@@ -110,7 +110,7 @@
                     android:id="@+id/btnVer"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/ic_view"
+                    android:src="@drawable/visibility"
                     app:tint="#B09E99"
                     android:contentDescription="@string/ver"
                     android:background="?attr/selectableItemBackgroundBorderless"

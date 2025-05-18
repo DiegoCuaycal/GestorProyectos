@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -102,10 +105,39 @@ public class MainActivity extends AppCompatActivity implements ProyectoAdapter.O
     // Métodos del listener (acciones de los botones)
     @Override
     public void onVerClick(Proyecto proyecto) {
-        Intent intent = new Intent(this, VerProyectoActivity.class);
-        intent.putExtra("id_proyecto", proyecto.getId());
-        startActivity(intent);
+        DBHelper dbHelper = new DBHelper(this);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT nombre, descripcion, fecha_inicio, fecha_fin FROM Proyectos WHERE id = ?",
+                new String[]{String.valueOf(proyecto.getId())});
+
+        if (cursor.moveToFirst()) {
+            String nombre = cursor.getString(0);
+            String descripcion = cursor.getString(1);
+            String fechaInicio = cursor.getString(2);
+            String fechaFin = cursor.getString(3);
+
+            View view = getLayoutInflater().inflate(R.layout.bottom_ver_proyecto, null);
+
+            TextView tvNombre = view.findViewById(R.id.tvNombreModal);
+            TextView tvDescripcion = view.findViewById(R.id.tvDescripcionModal);
+            TextView tvFechas = view.findViewById(R.id.tvFechasModal);
+
+            tvNombre.setText(nombre);
+            tvDescripcion.setText(descripcion);
+            tvFechas.setText(fechaInicio + " → " + fechaFin);
+
+            BottomSheetDialog dialog = new BottomSheetDialog(this);
+            dialog.setContentView(view);
+            dialog.show();
+        } else {
+            Toast.makeText(this, "No se encontró el proyecto", Toast.LENGTH_SHORT).show();
+        }
+
+        cursor.close();
+        db.close();
     }
+
 
     @Override
     public void onEditarClick(Proyecto proyecto) {
