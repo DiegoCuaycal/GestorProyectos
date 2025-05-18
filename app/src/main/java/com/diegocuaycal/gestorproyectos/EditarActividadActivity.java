@@ -1,16 +1,20 @@
 package com.diegocuaycal.gestorproyectos;
 
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Calendar;
 
 public class EditarActividadActivity extends AppCompatActivity {
 
@@ -46,6 +50,10 @@ public class EditarActividadActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, estados);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerEstado.setAdapter(adapter);
+
+        // Mostrar calendario al hacer clic en las fechas
+        etFechaInicio.setOnClickListener(v -> mostrarCalendario(etFechaInicio));
+        etFechaFin.setOnClickListener(v -> mostrarCalendario(etFechaFin));
 
         cargarDatosActividad();
 
@@ -97,4 +105,23 @@ public class EditarActividadActivity extends AppCompatActivity {
         }
         cursor.close();
     }
+
+    private void mostrarCalendario(EditText campoFecha) {
+        final Calendar calendario = Calendar.getInstance();
+        int anio = calendario.get(Calendar.YEAR);
+        int mes = calendario.get(Calendar.MONTH);
+        int dia = calendario.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog dialogoFecha = new DatePickerDialog(
+                this,
+                (view, year, month, dayOfMonth) -> {
+                    String fecha = String.format("%04d-%02d-%02d", year, month + 1, dayOfMonth);
+                    campoFecha.setText(fecha);
+                },
+                anio, mes, dia
+        );
+
+        dialogoFecha.show();
+    }
 }
+

@@ -1,13 +1,17 @@
 package com.diegocuaycal.gestorproyectos;
 
+import android.app.DatePickerDialog;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Calendar;
 
 public class EditarProyectoActivity extends AppCompatActivity {
 
@@ -30,7 +34,11 @@ public class EditarProyectoActivity extends AppCompatActivity {
         etFechaFin = findViewById(R.id.etFechaFin);
         btnActualizar = findViewById(R.id.btnActualizar);
 
-        // Obtener el ID del proyecto enviado desde MainActivity
+        // Mostrar calendario al hacer clic
+        etFechaInicio.setOnClickListener(v -> mostrarCalendario(etFechaInicio));
+        etFechaFin.setOnClickListener(v -> mostrarCalendario(etFechaFin));
+
+        // Obtener el ID del proyecto
         idProyecto = getIntent().getIntExtra("id_proyecto", -1);
         if (idProyecto == -1) {
             Toast.makeText(this, "Error al cargar proyecto", Toast.LENGTH_SHORT).show();
@@ -38,10 +46,8 @@ public class EditarProyectoActivity extends AppCompatActivity {
             return;
         }
 
-        // Cargar datos del proyecto en los campos
         cargarDatosProyecto();
 
-        // Guardar cambios
         btnActualizar.setOnClickListener(v -> actualizarProyecto());
     }
 
@@ -75,4 +81,22 @@ public class EditarProyectoActivity extends AppCompatActivity {
         Toast.makeText(this, "Proyecto actualizado correctamente", Toast.LENGTH_SHORT).show();
         finish();
     }
+
+    private void mostrarCalendario(EditText campoFecha) {
+        final Calendar calendario = Calendar.getInstance();
+        int anio = calendario.get(Calendar.YEAR);
+        int mes = calendario.get(Calendar.MONTH);
+        int dia = calendario.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                (view, year, month, dayOfMonth) -> {
+                    String fecha = String.format("%04d-%02d-%02d", year, month + 1, dayOfMonth);
+                    campoFecha.setText(fecha);
+                },
+                anio, mes, dia
+        );
+        datePickerDialog.show();
+    }
 }
+
