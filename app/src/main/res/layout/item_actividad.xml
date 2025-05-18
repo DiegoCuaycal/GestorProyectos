@@ -68,7 +68,7 @@
                 android:id="@+id/btnCambiarEstadoActividad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/person"
+                android:src="@drawable/update"
                 android:contentDescription="Cambiar estado"
                 android:background="@null"
                 android:padding="8dp"
