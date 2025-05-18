@@ -74,6 +74,22 @@ public class EditarProyectoActivity extends AppCompatActivity {
             return;
         }
 
+        try {
+            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+            sdf.setLenient(false);
+
+            java.util.Date inicio = sdf.parse(fechaInicio);
+            java.util.Date fin = sdf.parse(fechaFin);
+
+            if (fin.before(inicio)) {
+                Toast.makeText(this, "La fecha de fin no puede ser anterior a la de inicio", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, "Formato de fecha inválido", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.execSQL("UPDATE Proyectos SET nombre = ?, descripcion = ?, fecha_inicio = ?, fecha_fin = ? WHERE id = ?",
                 new Object[]{nombre, descripcion, fechaInicio, fechaFin, idProyecto});
@@ -81,6 +97,7 @@ public class EditarProyectoActivity extends AppCompatActivity {
         Toast.makeText(this, "Proyecto actualizado correctamente", Toast.LENGTH_SHORT).show();
         finish();
     }
+
 
     private void mostrarCalendario(EditText campoFecha) {
         final Calendar calendario = Calendar.getInstance();
