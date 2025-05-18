@@ -123,7 +123,7 @@
                 android:paddingTop="12dp"
                 android:paddingBottom="12dp"
                 app:cornerRadius="24dp"
-                app:backgroundTint="#B09E99" />
+                android:backgroundTint="#796056"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </ScrollView>
