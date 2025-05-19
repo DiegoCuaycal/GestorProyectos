@@ -45,7 +45,8 @@ Este proyecto fue creado como parte de la asignatura **Aplicaciones Móviles**. 
 
 A continuación se muestra el modelo entidad-relación utilizado en el diseño de la base de datos:
 
-![Diagrama Entidad Relación](./img/diagrama_entidad_relacion.png)
+![image](https://github.com/user-attachments/assets/4625de51-85e3-4635-b692-f39f0aa2bb0a)
+
 
 ---
 
