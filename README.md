@@ -41,7 +41,6 @@ Este proyecto fue creado como parte de la asignatura **Aplicaciones Móviles**. 
 ## 👨‍💻 Autor
 
 **Diego Cuaycal**  
-Estudiante de Ingeniería en Software · Universidad Técnica del Norte  
-[GitHub](https://github.com/diegocuaycal) · [LinkedIn](https://linkedin.com/in/diegocuaycal)
+Estudiante de Ingeniería en Software 
 
 ---
