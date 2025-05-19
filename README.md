@@ -56,7 +56,17 @@ Estas son las vistas clave de la aplicación que evidencian sus funcionalidades 
 
 | Login                    | Lista de Proyectos       | Barra de Progreso         |
 |--------------------------|--------------------------|---------------------------|
-| ![Login](./img/login.png) | ![Proyectos](./img/proyectos.png) | ![Progreso](./img/barra_progreso.png) |
+---
+| ![Proyectos](./img/proyectos.png) | ![Progreso](./img/barra_progreso.png) |
+![image](https://github.com/user-attachments/assets/843d7e21-d79a-4cb2-a4b4-ee883b1c01ed)
+
+![image](https://github.com/user-attachments/assets/4f2e343b-dd5f-4393-ad4f-53e8c798f405)
+
+![image](https://github.com/user-attachments/assets/1b18f407-b9ee-483a-9b66-ba7e9bb9f637)
+
+
+
+
 
 ---
 
