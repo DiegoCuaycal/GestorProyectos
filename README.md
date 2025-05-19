@@ -50,6 +50,16 @@ A continuación se muestra el modelo entidad-relación utilizado en el diseño d
 
 ---
 
+## 📸 Capturas de la aplicación
+
+Estas son las vistas clave de la aplicación que evidencian sus funcionalidades principales: acceso seguro con login, gestión de proyectos personales y visualización gráfica del progreso.
+
+| Login                    | Lista de Proyectos       | Barra de Progreso         |
+|--------------------------|--------------------------|---------------------------|
+| ![Login](./img/login.png) | ![Proyectos](./img/proyectos.png) | ![Progreso](./img/barra_progreso.png) |
+
+---
+
 ## 👨‍💻 Autor
 
 **Diego Cuaycal**  
