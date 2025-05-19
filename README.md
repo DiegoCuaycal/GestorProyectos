@@ -27,14 +27,17 @@ Este proyecto fue creado como parte de la asignatura **Aplicaciones Móviles**. 
 
 ## ⚙️ Tecnologías utilizadas
 
-| Categoría             | Herramientas / Tecnologías     |
-|-----------------------|--------------------------------|
-| Lenguaje principal    | Java                           |
-| IDE                   | Android Studio                 |
-| Base de datos local   | SQLite                         |
-| Diseño de interfaz    | XML + Material Design          |
-| Control de versiones  | Git + GitHub                   |
-| Sistema operativo     | Windows 10 / Fedora Linux (Dev) |
+| Categoría               | Herramientas / Tecnologías                              |
+|-------------------------|----------------------------------------------------------|
+| Lenguaje principal      | Java                                                    |
+| Entorno de desarrollo   | Android Studio                                          |
+| Base de datos local     | SQLite                                                  |
+| Diseño visual           | [Shape Divider App](https://www.shapedivider.app/)     |
+| Íconos                  | [Material Icons - Google](https://fonts.google.com/icons) |
+| Paleta de colores       | [Coolors](https://coolors.co/)                          |
+| Control de versiones    | Git + GitHub                                            |
+| Sistema operativo usado | Windows 11                                              |
+
 
 ---
 
