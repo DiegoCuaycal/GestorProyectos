@@ -41,6 +41,14 @@ Este proyecto fue creado como parte de la asignatura **Aplicaciones Móviles**. 
 
 ---
 
+## 🧩 Diagrama Entidad-Relación
+
+A continuación se muestra el modelo entidad-relación utilizado en el diseño de la base de datos:
+
+![Diagrama Entidad Relación](./img/diagrama_entidad_relacion.png)
+
+---
+
 ## 👨‍💻 Autor
 
 **Diego Cuaycal**  
