@@ -54,15 +54,12 @@ A continuación se muestra el modelo entidad-relación utilizado en el diseño d
 
 Estas son las vistas clave de la aplicación que evidencian sus funcionalidades principales: acceso seguro con login, gestión de proyectos personales y visualización gráfica del progreso.
 
-| Login                    | Lista de Proyectos       | Barra de Progreso         |
-|--------------------------|--------------------------|---------------------------|
----
-| ![Proyectos](./img/proyectos.png) | ![Progreso](./img/barra_progreso.png) |
-![image](https://github.com/user-attachments/assets/843d7e21-d79a-4cb2-a4b4-ee883b1c01ed)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/843d7e21-d79a-4cb2-a4b4-ee883b1c01ed" alt="Login" width="250"/>
+  <img src="https://github.com/user-attachments/assets/4f2e343b-dd5f-4393-ad4f-53e8c798f405" alt="Proyectos" width="250"/>
+  <img src="https://github.com/user-attachments/assets/1b18f407-b9ee-483a-9b66-ba7e9bb9f637" alt="Progreso" width="250"/>
+</p>
 
-![image](https://github.com/user-attachments/assets/4f2e343b-dd5f-4393-ad4f-53e8c798f405)
-
-![image](https://github.com/user-attachments/assets/1b18f407-b9ee-483a-9b66-ba7e9bb9f637)
 
 
 
